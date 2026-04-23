@@ -88,3 +88,8 @@ class Solution {
 
 // - its also important to note that we can use arrays for the rows and columns group structure - however each individual row and column need to be a map in order to track duplicates OR I guess it can also bet a Set
 // - the grid squares group must be a map though, as we need to identify each grid square using a string that represents the grid coordinates
+
+// General Teaching:
+// - this problem is really about applying basic concepts such as array tracking using maps, to a complex problem
+// - the specific concept of implementing the 3x3 grid squares is much more complex than the general concepts used to solve the problem
+// - basic knowledge of understanding how to track values, find duplicates and exit loops on specific conditions - is enough to implement the solution ONCE you understand how to solve the problem of the coordinates.
