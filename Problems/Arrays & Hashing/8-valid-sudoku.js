@@ -69,3 +69,22 @@ class Solution {
 
 // Improvements:
 // we can replace our basic object maps for actual Map structures, allowing us to use more readable code
+
+// Deeper Dive:
+// - we are given an array that represents a standard 9x9 sudoku board
+// - if we think along the terms of x and y axis, x being horizontal and y being vertical.. in our code we use j for x, i for y
+// - i would be the current row (y axis), j would be the current column (x axis)
+// - we need to map every individual row and column
+// - so i represents the row the current cell belongs to, and j represents the current column the cell belongs to
+// - e.g. all of the values that have "0" as their j value belong in the "0" column map (the intuition for the y(i) axis is more obvious)
+
+// - the hardest part of this problem is understanding how we determine what 3x3 square each 1x1 cell value belongs to
+// - we can take advantage of integer division to achieve this
+// - we can think of each square as having its own coordinates e.g. 0,0 1,2, 2,2  etc
+// - the board is 9x9, each grid square is 3x3, which is 1/3 of the size of the original board
+// - we can use that pattern and apply it to each index of the external array (representing rows) and each index of its internal array (representing columns)
+// - the possible indecies are 0 - 8, 9 values. If we divide the current index by 3, we get the values 0,1, or 2 depending on the index
+// - doing this for both the x and y axis index will give you the coordinates of the grid that the current cell belongs to
+
+// - its also important to note that we can use arrays for the rows and columns group structure - however each individual row and column need to be a map in order to track duplicates OR I guess it can also bet a Set
+// - the grid squares group must be a map though, as we need to identify each grid square using a string that represents the grid coordinates
