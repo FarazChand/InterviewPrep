@@ -24,27 +24,26 @@ class Solution {
   // - return the output array
 
   topKFrequent(nums, k) {
-    let map = {};
     let output = [];
+    let map = {};
 
-    for (let i = 0; i < nums.length; i++) {
-      map[nums[i]] = map[nums[i]] + 1 || 1;
+    for (let val of nums) {
+      map[val] = (map[val] || 0) + 1;
     }
 
     let buckets = Array.from({ length: nums.length + 1 }, () => []);
 
     for (let key in map) {
-      buckets[map[key]].push(parseInt(key));
+      buckets[map[key]].push(Number(key));
     }
 
-    let count = 0;
-
-    for (let i = buckets.length - 1; i >= 0 && count < k; i--) {
-      for (let j = 0; j < buckets[i].length && count < k; j++) {
-        output.push(buckets[i][j]);
-        count++;
+    for (let i = buckets.length - 1; i >= 0 && output.length < k; i--) {
+      for (let val of buckets[i]) {
+        if (output.length === k) break;
+        output.push(val);
       }
     }
+
     return output;
   }
 }
