@@ -36,6 +36,7 @@ class Solution {
     // [24,12,8,6]
     for (let i = 0; i < nums.length; i++) {
       // first we store the current prefix, then we update it
+      // this results in having the prefix for each index of the given array stored in the respective index of the output array
 
       output.push(prefix);
       prefix *= nums[i];
